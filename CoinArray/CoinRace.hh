@@ -14,7 +14,7 @@ private:
 	//METODOS
 
 	void movimiento();
-	void InitPlayer();
+	void InitPlayer(int &PlayerPosX, int &PlayerPosY, int CoinPosX, int CoinPosY);
 	void PlayerUpdate();
 
 public:
