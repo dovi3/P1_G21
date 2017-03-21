@@ -1,4 +1,4 @@
-#include "CoinRace.hh"
+#include "player.hh"
 #include <conio.h>
 
 
