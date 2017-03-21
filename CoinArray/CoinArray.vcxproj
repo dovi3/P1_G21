@@ -146,10 +146,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CoinRace.cc" />
+    <ClCompile Include="Map.cc" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CoinRace.hh" />
+    <ClInclude Include="Map.hh" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
