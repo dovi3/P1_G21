@@ -8,8 +8,8 @@ class Map
 		char coinSymbol;
 	public://Metodos
 		Map(int, int, char, char, char);//Constructor de la clase
-		void deafultMap();
+		void deafultMap();	
+		void drawMap(int RowToUpdate, int ColToUpdate, char ChToUpdate);
+		void updateBox(int Row, int Column, char value);		
 		void freeMemory();
-		void updateBox();
-		void drawMap();
 };

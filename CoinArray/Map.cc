@@ -23,18 +23,27 @@ void Map::deafultMap()
 
 	
 }
-void Map::drawMap()
+
+void Map::updateBox(int Row, int Column, char value) {
+
+	*(*(punteroMapa + Row) + Column) = value;
+}
+
+void Map::drawMap(int RowToUpdate, int ColToUpdate, char ChToUpdate)
 {
 	std::cout << "\nGenerando mapa...\n";
 	for (int i = 0; i < NUM_ROWS; i++) {
 		for (int j = 0; j < NUM_COLUMNS; j++) {
 
 			*(*(punteroMapa + i) + j) = voidBox;
+			
+			updateBox(RowToUpdate, ColToUpdate, ChToUpdate);
 			std::cout << *(*(punteroMapa + i) + j) << " ";
 		}
 		std::cout << "\n";
 	}
 }
+
 
 //Este metodo sirve para liberar la memoria una vez acabado el programa
 void Map::freeMemory() 

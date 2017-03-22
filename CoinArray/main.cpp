@@ -46,10 +46,10 @@ void main()
 
 	Map mapita = Map(nRows, nColumns, voidBox, playerSymbol, coinSymbol);
 	mapita.deafultMap();
-	mapita.drawMap();
-	mapita.freeMemory();
-
-
+	mapita.drawMap(6, 3, '$');												//no tenemos claro si la funcionalidad de este metodo si viene ligada a la clase player,
+	mapita.freeMemory();													//es decir, cada vez que el jugador se mueva, la clase player borra la posicion anterior
+																			//y coloca el punto como si estubiera vacia la celda, la misma clase Player. O quien coloca el punto
+																			// es el metodo "UpdateBox" de la clase Map
 	nRows = 5;
 	nColumns = 10;
 }
