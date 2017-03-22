@@ -16,31 +16,47 @@ Map::Map(int num_rows, int num_columns, char void_box, char player_symbol, char 
 }
 void Map::deafultMap()
 {
-	std::cout << "Numero de filas: ";
-	std::cin >> nRows;
-	std::cout << "Numero de columnas: ";
-	std::cin >> nColumns;
-
 	//Reservamos el espacio para el mapa
-	punteroMapa = new char *[nRows]; //es necesario el puntero por que el numero de filas apunta al numero de columnas de cada fila
-	for (int i = 0; i < nRows; i++) {
-		punteroMapa[i] = new char[nColumns]; //aqui reservamos espacio para las columnas
+	punteroMapa = new char *[NUM_ROWS]; //es necesario el puntero por que el numero de filas apunta al numero de columnas de cada fila
+	for (int i = 0; i < NUM_ROWS; i++) {
+		punteroMapa[i] = new char[NUM_COLUMNS]; //aqui reservamos espacio para las columnas
 	}
 
-	std::cout << "\nGenerando mapa... ";
-	for (int i = 0; i < nRows; i++) {
-		for (int j = 0; j < nColumns; j++) {
+	
+}
+void Map::drawMap()
+{
+	std::cout << "\nGenerando mapa...\n";
+	for (int i = 0; i < NUM_ROWS; i++) {
+		for (int j = 0; j < NUM_COLUMNS; j++) {
 
-			*(*(punteroMapa + i) + j) = '.';
-			std::cout << *(*(punteroMapa + i) + j);
+			*(*(punteroMapa + i) + j) = voidBox;
+			std::cout << *(*(punteroMapa + i) + j) << " ";
 		}
+		std::cout << "\n";
 	}
 }
 
+//Este metodo sirve para liberar la memoria una vez acabado el programa
+void Map::freeMemory() 
+{
+	for (int i = 0; i < nRows; i++)
+		delete[] punteroMapa[i];
+
+	delete[] punteroMapa;
+
+}
 
 void main()
 {
-	Map deafultMap();
+	nRows = 10;
+	nColumns = 10;
+	char voidBox = '.';
+	char playerSymbol = '@';
+	char coinSymbol = '$';
+	Map mapita = Map(nRows, nColumns, voidBox, playerSymbol, coinSymbol);
+	mapita.deafultMap();
+	mapita.drawMap();
+	mapita.freeMemory();
 
-	deafultMap();
 }
