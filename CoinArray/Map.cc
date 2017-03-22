@@ -16,10 +16,10 @@ Map::Map(int num_rows, int num_columns, char void_box, char player_symbol, char 
 }
 void Map::deafultMap()
 {
-	std::cout << "Numero de filas: ";
+	/*std::cout << "Numero de filas: ";
 	std::cin >> nRows;
 	std::cout << "Numero de columnas: ";
-	std::cin >> nColumns;
+	std::cin >> nColumns;*/
 
 	//Reservamos el espacio para el mapa
 	punteroMapa = new char *[nRows]; //es necesario el puntero por que el numero de filas apunta al numero de columnas de cada fila
@@ -27,20 +27,35 @@ void Map::deafultMap()
 		punteroMapa[i] = new char[nColumns]; //aqui reservamos espacio para las columnas
 	}
 
-	std::cout << "\nGenerando mapa... ";
+	std::cout << "\nGenerando mapa...\n";
 	for (int i = 0; i < nRows; i++) {
 		for (int j = 0; j < nColumns; j++) {
 
 			*(*(punteroMapa + i) + j) = '.';
-			std::cout << *(*(punteroMapa + i) + j);
+			std::cout << *(*(punteroMapa + i) + j) << " ";
 		}
+		std::cout << "\n";
 	}
 }
 
+//Este metodo sirve para liberar la memoria una vez acabado el programa
+void Map::freeMemory() 
+{
+	for (int i = 0; i < nRows; i++)
+		delete[] punteroMapa[i];
+
+	delete[] punteroMapa;
+
+}
 
 void main()
 {
-	Map deafultMap();
+	nRows = 10;
+	nColumns = 10;
 
-	deafultMap();
+	Map mapita = Map(nRows, nColumns, 'a', 'c', 'b');
+	mapita.deafultMap();
+
+	mapita.freeMemory();
+
 }
