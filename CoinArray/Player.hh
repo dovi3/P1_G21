@@ -1,4 +1,4 @@
-#include <iostream>
+/*#include <iostream>
 #include <time.h>
 
 using namespace std;
@@ -20,11 +20,7 @@ private:
 public:
 
 	player(); // Prototip de constructor
-
-
-
-
-	player();
+	
 	~player();
 };
 
@@ -37,3 +33,4 @@ player::player()
 player::~player()
 {
 }
+*/

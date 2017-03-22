@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include "Map.hh"
 
-
 char **punteroMapa, nRows, nColumns;
 
 //Constructor de la clase Map
@@ -47,16 +46,4 @@ void Map::freeMemory()
 
 }
 
-void main()
-{
-	nRows = 10;
-	nColumns = 10;
-	char voidBox = '.';
-	char playerSymbol = '@';
-	char coinSymbol = '$';
-	Map mapita = Map(nRows, nColumns, voidBox, playerSymbol, coinSymbol);
-	mapita.deafultMap();
-	mapita.drawMap();
-	mapita.freeMemory();
 
-}
