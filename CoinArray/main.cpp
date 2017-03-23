@@ -48,6 +48,7 @@ void main()
 	// Generant mapa 
 	Map mapita = Map(numColumns, numRows);
 	mapita.drawMap(PlayerPosX, PlayerPosY, '@');
-	mapita.freeMemory();													
+	mapita.freeMemory();			
+
 												
 }
