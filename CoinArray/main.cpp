@@ -37,7 +37,9 @@ int dificultad(int& numRows, int& numColumns) {
 void main()
 {
 	int numColumns, numRows;
-	int PlayerPosX, PlayerPosY;
+	int Player1PosX;
+	int  Player1PosY;
+
 
 	srand(time(NULL));
 
@@ -45,9 +47,12 @@ void main()
 	dificultad(numColumns, numRows);
 	player p1 = player(numColumns, numRows);
 	
+	Player1PosX = p1.PlayerPosX;
+	Player1PosY = p1.PlayerPosY;
+
 	// Generant mapa 
 	Map mapita = Map(numColumns, numRows);
-	mapita.drawMap(PlayerPosX, PlayerPosY, '@');
+	mapita.drawMap(Player1PosX, Player1PosY, '@');
 	mapita.freeMemory();			
 
 												
