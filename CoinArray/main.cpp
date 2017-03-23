@@ -2,6 +2,7 @@
 #include <time.h>
 #include "Player.hh"
 #include "Map.hh" 
+#include <stdlib.h>
 
 
 int difi;
@@ -41,41 +42,65 @@ void main()
 	int  Player1PosY;
 
 
-	srand(time(NULL));
+	srand(time(nullptr));
 
 
-	dificultad(numColumns, numRows);	
+	dificultad(numColumns, numRows);
 
 	// Generant joc 
-	Map mapita = Map(numColumns, numRows);					 //Reserva memoria dinamica y la llena de '.'
+	Map mapita = Map(numColumns, numRows);			//Reserva memoria dinamica y la llena de '.'
 	player p1 = player(numColumns, numRows);				//Inicialitza l'objecte p1
-	
+
+	while (true) {
+		mapita.updateBox(p1.PlayerPosX, p1.PlayerPosY, '@');
+		mapita.drawMap();
+		bool pressed = false;
+		
+		while(!pressed)
+		
+		p1.moviment(1, 1, pressed);
+		mapita.updateBox(p1.PlayerPosX, p1.PlayerPosY, '@');
+		
+		system("cls");
+	}
+}
+
+
+/*
+
 	Player1PosX = p1.PlayerPosX;
 	Player1PosY = p1.PlayerPosY;
-	mapita.updateBox(Player1PosX, Player1PosY, '@');        //posiciona l'0bjecte p1 dins l'array dinamic
-	//p1.moviment(numColumns, numRows);
 	
-	bool GameOver = false;
+	mapita.updateBox(Player1PosX, Player1PosY, '@');   
+	mapita.drawMap();
+	
 
-	while (!GameOver)
-	{
-		p1.moviment(Player1PosX, Player1PosY);
-		Player1PosX = p1.PlayerPosX;
-		Player1PosY = p1.PlayerPosY;
-		mapita.updateBox(Player1PosX, Player1PosY, '@');
-
-		mapita.drawMap();										//Pinta todo el array
-
-	}
 
 	
+
+
 	
-	
+		system("cls");
+		std::cout << p1.PlayerPosX << ' ' << p1.PlayerPosY << std::endl;
+
+		
+		
+
+			mapita.updateBox(old_x, old_y, '.');
+		
+			old_x = Player1PosX;
+			old_y = Player1PosY;
+
+			p1.moviment(1, 1);
+			mapita.updateBox(p1.PlayerPosX, p1.PlayerPosY, '@');
+			mapita.drawMap();
+		
+
+
 	
 	
 	
 	
 	mapita.freeMemory();									//Libera la memoria del heap usada por el array dinamico
 
-												
-}
+		*/										
