@@ -27,8 +27,8 @@ void dificultad(int& numRows, int& numColumns) {
 	}
 	
 	
-	 numRows = nRows * difi;
-	 numColumns = nColumns * difi;
+	 numRows = rand() % (nRows * difi) + (nRows * difi);
+	 numColumns = rand() % (nColumns * difi) + (nColumns * difi);
 
 }
 
