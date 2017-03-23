@@ -11,8 +11,7 @@ class Map
 		int NUM_COLUMNS;
 
 	public://Metodos
-		Map(int, int, char, char, char);//Constructor de la clase
-		void deafultMap();	
+		Map(int, int);													//Constructor de la clase
 		void drawMap(int RowToUpdate, int ColToUpdate, char ChToUpdate);
 		void updateBox(int Row, int Column, char value);		
 		void freeMemory();

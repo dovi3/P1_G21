@@ -4,13 +4,14 @@
 #include "Map.hh" 
 using namespace std;
 
-int difi, dificultadForm;
-int nRows = 5;
-int nColumns = 10;
+int difi;
 
 
-void dificultad(int &numRows, int &numColumns) {
-	
+
+void dificultad(int& numRows, int& numColumns) {
+	int nRows = 5;
+	int nColumns = 10;
+
 	difi = 0;
 	while (difi != 1 && difi != 2 && difi != 3) {
 	
@@ -19,8 +20,8 @@ void dificultad(int &numRows, int &numColumns) {
 		
 		cin >> difi;
 
-		if (difi != 1 || difi != 2 || difi != 3) {
-			cout << "debes elegir un número del 1 al 3!!" << endl;
+		if (difi != 1 && difi != 2 && difi != 3) {
+			cout << "debes elegir un numero del 1 al 3!!" << endl;
 		}
 	
 	}
@@ -39,22 +40,16 @@ void main()
 	int PlayerPosX, PlayerPosY;
 
 	srand(time(NULL));
-	
-	char voidBox = '.';
-	char playerSymbol = '@';
-	char coinSymbol = '$';
 
 
 	dificultad(numColumns, numRows);
-	player p1 = player(2, 2, 0);
-	p1.PlayerInit(numColumns, numRows, PlayerPosX, PlayerPosY);
-
-	Map mapita = Map(nRows, nColumns, voidBox, playerSymbol, coinSymbol);
-	mapita.deafultMap();
-	mapita.drawMap(3, 3, '$');												//no tenemos claro si la funcionalidad de este metodo si viene ligada a la clase player,
-	mapita.freeMemory();													//es decir, cada vez que el jugador se mueva, la clase player borra la posicion anterior
-																			//y coloca el punto como si estubiera vacia la celda, la misma clase Player. O quien coloca el punto
-																			// es el metodo "UpdateBox" de la clase Map
-	nRows = 5;
-	nColumns = 10;
+	/*player p1 = player(2, 2, 0);
+	p1.PlayerInit(numColumns, numRows, PlayerPosX, PlayerPosY);*/
+	
+	// Generant mapa 
+	Map mapita = Map(numColumns, numRows);
+	mapita.drawMap(3, 3, '$');												
+	mapita.freeMemory();													
+																			
+																			
 }
