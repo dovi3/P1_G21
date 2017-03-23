@@ -7,10 +7,7 @@ public:
 	int PlayerScore;
 
 public:
-	player(int, int, int); //constructor de la classe
-	void PlayerInit(int numRows, int numColumns, int &Player_PosX, int &Player_PosY);
+	player(int, int); //constructor de la classe
+	
 	void moviment();
-
-
-
 };

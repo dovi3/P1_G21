@@ -8,9 +8,9 @@ int difi;
 
 
 
-void dificultad(int& numRows, int& numColumns) {
+int dificultad(int& numRows, int& numColumns) {
 	int nRows = 5;
-	int nColumns = 10;
+	int nColumns = 5;
 
 	difi = 0;
 	while (difi != 1 && difi != 2 && difi != 3) {
@@ -29,7 +29,7 @@ void dificultad(int& numRows, int& numColumns) {
 	
 	 numRows = rand() % (nRows * difi) + (nRows * difi);
 	 numColumns = rand() % (nColumns * difi) + (nColumns * difi);
-
+	 return difi;
 }
 
 
@@ -43,13 +43,11 @@ void main()
 
 
 	dificultad(numColumns, numRows);
-	/*player p1 = player(2, 2, 0);
-	p1.PlayerInit(numColumns, numRows, PlayerPosX, PlayerPosY);*/
+	player p1 = player(numColumns, numRows);
 	
 	// Generant mapa 
 	Map mapita = Map(numColumns, numRows);
-	mapita.drawMap(3, 3, '$');												
+	mapita.drawMap(PlayerPosX, PlayerPosY, '@');
 	mapita.freeMemory();													
-																			
-																			
+												
 }
