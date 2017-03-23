@@ -16,6 +16,13 @@ Map::Map(int num_rows, int num_columns)
 	for (int i = 0; i < NUM_ROWS; i++) {
 		punteroMapa[i] = new char[NUM_COLUMNS];		//aqui reservamos espacio para las columnas
 	}
+
+	for (int i = 0; i < NUM_ROWS; i++) {			//Llena el mapa de puntos.
+		for (int j = 0; j < NUM_COLUMNS; j++) {
+
+			*(*(punteroMapa + i) + j) = voidBox;
+		}
+	}
 }
 
 
@@ -25,19 +32,17 @@ void Map::updateBox(int Row, int Column, char value) {
 
 
 	*(*(punteroMapa + Row) + Column) = value;
+	
 }
 
 
 
-void Map::drawMap(int RowToUpdate, int ColToUpdate, char ChToUpdate)
+void Map::drawMap()                                          //Printa todo el mapa, es decir, todo lo que contenga el array dinamico
 {
 	std::cout << "\nGenerando mapa...\n";
 	for (int i = 0; i < NUM_ROWS; i++) {
 		for (int j = 0; j < NUM_COLUMNS; j++) {
-
-			*(*(punteroMapa + i) + j) = voidBox;
-			
-			updateBox(RowToUpdate, ColToUpdate, ChToUpdate);
+						
 			std::cout << *(*(punteroMapa + i) + j) << " ";
 		}
 		std::cout << "\n";

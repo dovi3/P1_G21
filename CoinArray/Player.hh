@@ -9,6 +9,6 @@ public:
 public:
 	player(int, int); //constructor de la classe
 	
-	void moviment();
+	void moviment(int nColumns, int nRows);
 };
 

@@ -44,16 +44,38 @@ void main()
 	srand(time(NULL));
 
 
-	dificultad(numColumns, numRows);
-	player p1 = player(numColumns, numRows);
+	dificultad(numColumns, numRows);	
+
+	// Generant joc 
+	Map mapita = Map(numColumns, numRows);					 //Reserva memoria dinamica y la llena de '.'
+	player p1 = player(numColumns, numRows);				//Inicialitza l'objecte p1
 	
 	Player1PosX = p1.PlayerPosX;
 	Player1PosY = p1.PlayerPosY;
+	mapita.updateBox(Player1PosX, Player1PosY, '@');        //posiciona l'0bjecte p1 dins l'array dinamic
+	//p1.moviment(numColumns, numRows);
+	
+	bool GameOver = false;
 
-	// Generant mapa 
-	Map mapita = Map(numColumns, numRows);
-	mapita.drawMap(Player1PosX, Player1PosY, '@');
-	mapita.freeMemory();			
+	while (!GameOver)
+	{
+		p1.moviment(Player1PosX, Player1PosY);
+		Player1PosX = p1.PlayerPosX;
+		Player1PosY = p1.PlayerPosY;
+		mapita.updateBox(Player1PosX, Player1PosY, '@');
+
+		mapita.drawMap();										//Pinta todo el array
+
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	mapita.freeMemory();									//Libera la memoria del heap usada por el array dinamico
 
 												
 }

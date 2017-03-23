@@ -18,7 +18,7 @@ namespace Input
 		NONE, W, A, S, D, ENTER, ESC
 	};
 
-	static Key getKey() // returns the key that has been pressed
+	static Key moviment() // returns the key that has been pressed
 	{
 		if (_kbhit())
 		{
@@ -44,12 +44,42 @@ namespace Input
 
 
 
-void player::moviment() {
+void player::moviment(int nColumns, int nRows) {
 
 
-	
-		
+		switch (Input::moviment())
+		{
+		case Input::Key::W:
+			// Referirme a la posicion del array dinamico, y hacer "fila--"
 			
+			PlayerPosX = PlayerPosX - nRows;
+			
+			
+			break;
+		case Input::Key::S:
+			// Referirme a la posicion del array dinamico, y hacer "fila++"
+
+			PlayerPosX = PlayerPosX + nRows;
+			
+			
+			break;
+		case Input::Key::D:
+			// Referirme a la posicion del array dinamico, y hacer "columna++"
+
+			PlayerPosX = PlayerPosX + nColumns;
+			
+			
+			break;
+		case Input::Key::A:
+			// Referirme a la posicion del array dinamico, y hacer "columna--"
+
+			PlayerPosX = PlayerPosX - nColumns;
 
 
-}
+
+			break;
+
+		default:
+			break;
+		}
+	}

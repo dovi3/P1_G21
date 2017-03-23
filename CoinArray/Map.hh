@@ -12,7 +12,7 @@ class Map
 
 	public://Metodos
 		Map(int, int);													//Constructor de la clase
-		void drawMap(int RowToUpdate, int ColToUpdate, char ChToUpdate);
+		void drawMap();
 		void updateBox(int Row, int Column, char value);		
 		void freeMemory();
 };
