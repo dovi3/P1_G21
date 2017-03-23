@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include "Map.hh"
 
-char **punteroMapa, nRows, nColumns;
-
 //Constructor de la clase Map
 Map::Map(int num_rows, int num_columns, char void_box, char player_symbol, char coin_siymbol) 
 {
@@ -13,21 +11,25 @@ Map::Map(int num_rows, int num_columns, char void_box, char player_symbol, char 
 	playerSymbol = player_symbol;
 	coinSymbol = coin_siymbol;
 }
+
 void Map::deafultMap()
 {
 	//Reservamos el espacio para el mapa
-	punteroMapa = new char *[NUM_ROWS]; //es necesario el puntero por que el numero de filas apunta al numero de columnas de cada fila
+	punteroMapa = new char *[NUM_ROWS];				//es necesario el puntero por que el numero de filas apunta al numero de columnas de cada fila
 	for (int i = 0; i < NUM_ROWS; i++) {
-		punteroMapa[i] = new char[NUM_COLUMNS]; //aqui reservamos espacio para las columnas
-	}
-
-	
+		punteroMapa[i] = new char[NUM_COLUMNS];		//aqui reservamos espacio para las columnas
+	}	
 }
+
+
 
 void Map::updateBox(int Row, int Column, char value) {
 
+
 	*(*(punteroMapa + Row) + Column) = value;
 }
+
+
 
 void Map::drawMap(int RowToUpdate, int ColToUpdate, char ChToUpdate)
 {

@@ -1,68 +1,18 @@
+#include "Map.hh"
+#include <iostream>
 #include "player.hh"
-#include <conio.h>
 
+player::player(int Player_PosX, int Player_PosY, int _score) {
 
-namespace Input
-{
-	enum class Key // represents each key that the player can use
-	{
-		NONE, W, A, S, D, ENTER, ESC
-	};	static Key getKey() // returns the key that has been pressed
-	{
-		if (_kbhit())
-		{
-			switch (_getch())
-			{
-			case 87: case 119:
-				return Key::W; // w and W
-			case 65: case 97:
-				return Key::A; // a and A
-			case 83: case 115:
-				return Key::S; // s and S
-			case 68: case 100:
-				return Key::D; // d and D
-			case 13:
-				return Key::ENTER; // carriage return
-			case 27:
-				return Key::ESC; // escape
-			}
-		}
-		return Key::NONE;
-	}
-};
-
-// Constructor
-player::player() {
-
+	PlayerPosX = Player_PosX;
+	PlayerPosY = Player_PosY;
+	PlayerScore = _score;
 
 }
 
-void player::InitPlayer(int &PlayerPosX, int &PlayerPosY, char arr[][]) {
+void player::PlayerInit(int numRows , int numColumns, int &Player_PosX, int &Player_PosY) {
 
-	//Si aquesta posició coincideix amb la d'un coin, torna a inicialitzar la posició
-	bool IsAlone = false;
-	
-	do
-	{
-		
-		PlayerPosX = rand(); //%// NUM_COLUMNS;
-		PlayerPosX = rand(); //%// NUM_ROWS;
-		if (PlayerPosX = )
-
-	} while (IsAlone = false);
-
-
-
+	Player_PosX = std::rand() % numRows;
+	Player_PosY = std::rand() % numColumns;
 
 }
-void player::movimiento() {
-
-
-}
-
-void player::PlayerUpdate() {
-
-
-
-}
-

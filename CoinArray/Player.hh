@@ -1,36 +1,16 @@
-/*#include <iostream>
-#include <time.h>
-
-using namespace std;
-
-class player
+class player 
 {
+
 private:
-	//Atributos
-	int PlayerPosX;
-	int PlayerPosY;
-
+public:
+	int PlayerPosX, PlayerPosY;
 	int PlayerScore;
-	//METODOS
-
-	void movimiento();
-	void InitPlayer(int &PlayerPosX, int &PlayerPosY, char arr[][]);
-	void PlayerUpdate();
 
 public:
+	player(int, int, int); //constructor de la classe
+	void PlayerInit(int numRows, int numColumns, int &Player_PosX, int &Player_PosY);
+	void moviment();
 
-	player(); // Prototip de constructor
-	
-	~player();
+
+
 };
-
-
-
-player::player()
-{
-}
-
-player::~player()
-{
-}
-*/
