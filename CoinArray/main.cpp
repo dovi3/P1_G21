@@ -40,7 +40,7 @@ void main()
 	int numColumns, numRows;
 	int Player1PosX;
 	int  Player1PosY;
-
+	int x_old, y_old;
 
 	srand(time(nullptr));
 
@@ -52,15 +52,18 @@ void main()
 	player p1 = player(numColumns, numRows);				//Inicialitza l'objecte p1
 
 	while (true) {
+		std::cout << "Selecciona la dificultad:\n 1: Easy\n 2: Medium\n 3: Hard\n" << std::endl;
+		
 		mapita.updateBox(p1.PlayerPosX, p1.PlayerPosY, '@');
 		mapita.drawMap();
 		bool pressed = false;
+		x_old = p1.PlayerPosX;
+		y_old = p1.PlayerPosY;
+		while (!pressed)
 		
-		while(!pressed)
-		
-		p1.moviment(1, 1, pressed);
+		p1.moviment(pressed);
 		mapita.updateBox(p1.PlayerPosX, p1.PlayerPosY, '@');
-		
+		mapita.updateBox(x_old, y_old, '.');
 		system("cls");
 	}
 }

@@ -6,7 +6,7 @@
 player::player(int numRows, int numColumns) {
 
 	PlayerPosX = std::rand() % numColumns;
-	PlayerPosY = std::rand() % numRows;
+	PlayerPosY =  std::rand() % numRows;
 	PlayerScore = 0;
 
 }
@@ -44,7 +44,7 @@ namespace Input
 
 
 
-void player::moviment(int nColumns, int nRows, bool& pressed) {
+void player::moviment(bool& pressed) {
 
 
 		switch (Input::moviment())
@@ -52,28 +52,29 @@ void player::moviment(int nColumns, int nRows, bool& pressed) {
 		case Input::Key::W:
 			// Referirme a la posicion del array dinamico, y hacer "fila--"
 			
-			PlayerPosY = PlayerPosY - nRows;
+
+			PlayerPosX = PlayerPosX -1;
 
 			pressed = true;
 			break;
 		case Input::Key::S:
 			// Referirme a la posicion del array dinamico, y hacer "fila++"
 
-			PlayerPosX = PlayerPosX + nRows;
+			PlayerPosX = PlayerPosX + 1;
 			pressed = true;
 			
 			break;
 		case Input::Key::D:
 			// Referirme a la posicion del array dinamico, y hacer "columna++"
 
-			PlayerPosX = PlayerPosY + 1;
+			PlayerPosY = PlayerPosY + 1;
 			pressed = true;
 			
 			break;
 		case Input::Key::A:
 			// Referirme a la posicion del array dinamico, y hacer "columna--"
 
-			PlayerPosX = PlayerPosY - 1;
+			PlayerPosY = PlayerPosY - 1;
 			pressed = true;
 		break;
 
