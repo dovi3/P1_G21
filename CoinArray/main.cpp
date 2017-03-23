@@ -47,7 +47,7 @@ void main()
 
 	dificultad(numColumns, numRows);
 	player p1 = player(2, 2, 0);
-	p1.PlayerInit(numColumns, numRows, );
+	p1.PlayerInit(numColumns, numRows, PlayerPosX, PlayerPosY);
 
 	Map mapita = Map(nRows, nColumns, voidBox, playerSymbol, coinSymbol);
 	mapita.deafultMap();
