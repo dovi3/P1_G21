@@ -2,7 +2,7 @@
 #include <time.h>
 #include "Player.hh"
 #include "Map.hh" 
-using namespace std;
+
 
 int difi;
 
@@ -16,12 +16,12 @@ int dificultad(int& numRows, int& numColumns) {
 	while (difi != 1 && difi != 2 && difi != 3) {
 	
 	
-		cout << "Selecciona la dificultad:\n 1: Easy\n 2: Medium\n 3: Hard\n" << endl;
+		std::cout << "Selecciona la dificultad:\n 1: Easy\n 2: Medium\n 3: Hard\n" << std::endl;
 		
-		cin >> difi;
+		std::cin >> difi;
 
 		if (difi != 1 && difi != 2 && difi != 3) {
-			cout << "debes elegir un numero del 1 al 3!!" << endl;
+			std::cout << "debes elegir un numero del 1 al 3!!" << std::endl;
 		}
 	
 	}

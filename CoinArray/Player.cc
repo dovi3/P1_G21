@@ -40,7 +40,8 @@ namespace Input
 		}
 		return Key::NONE;
 	}
-}
+}
+
 
 
 void player::moviment() {
