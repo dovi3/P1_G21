@@ -9,6 +9,6 @@ public:
 public:
 	player(int, int); //constructor de la classe
 	
-	void moviment(bool& pressed);
+	void moviment(int nRows, int nColumns, bool& pressed);
 };
 

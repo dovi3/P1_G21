@@ -61,7 +61,7 @@ void main()
 		y_old = p1.PlayerPosY;
 		while (!pressed)
 		
-		p1.moviment(pressed);
+		p1.moviment(numColumns, numRows, pressed);
 		mapita.updateBox(p1.PlayerPosX, p1.PlayerPosY, '@');
 		mapita.updateBox(x_old, y_old, '.');
 		system("cls");

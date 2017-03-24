@@ -44,7 +44,7 @@ namespace Input
 
 
 
-void player::moviment(bool& pressed) {
+void player::moviment(int nRows, int nColumns, bool& pressed) {
 
 
 		switch (Input::moviment())
@@ -52,28 +52,31 @@ void player::moviment(bool& pressed) {
 		case Input::Key::W:
 			// Referirme a la posicion del array dinamico, y hacer "fila--"
 			
-
+			if(PlayerPosX != nRows)
 			PlayerPosX = PlayerPosX -1;
 
 			pressed = true;
 			break;
 		case Input::Key::S:
 			// Referirme a la posicion del array dinamico, y hacer "fila++"
-
+			if (PlayerPosX != 0)
 			PlayerPosX = PlayerPosX + 1;
+			else {
+				PlayerPosX = PlayerPosX;
+			}
 			pressed = true;
 			
 			break;
 		case Input::Key::D:
 			// Referirme a la posicion del array dinamico, y hacer "columna++"
-
+			if (PlayerPosY != nColumns)
 			PlayerPosY = PlayerPosY + 1;
 			pressed = true;
 			
 			break;
 		case Input::Key::A:
 			// Referirme a la posicion del array dinamico, y hacer "columna--"
-
+			if (PlayerPosY != nColumns)
 			PlayerPosY = PlayerPosY - 1;
 			pressed = true;
 		break;
