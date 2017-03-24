@@ -31,17 +31,18 @@ int dificultad(int& numRows, int& numColumns) {
 	 numRows = rand() % (nRows * difi) + (nRows * difi);
 	 numColumns = rand() % (nColumns * difi) + (nColumns * difi);
 	 return difi;
-}
+} 
 
 
 
 void main()
 {
+
+	srand(time(nullptr));
 	int numColumns, numRows;
 	int Player1PosX;
 	int  Player1PosY;
-	int x_old, y_old;
-
+	bool GameOver = true;
 	srand(time(nullptr));
 
 
@@ -51,59 +52,21 @@ void main()
 	Map mapita = Map(numColumns, numRows);			//Reserva memoria dinamica y la llena de '.'
 	player p1 = player(numColumns, numRows);				//Inicialitza l'objecte p1
 
-	while (true) {
+	while (GameOver) {
 		std::cout << "Selecciona la dificultad:\n 1: Easy\n 2: Medium\n 3: Hard\n" << std::endl;
 		
 		mapita.updateBox(p1.PlayerPosX, p1.PlayerPosY, '@');
 		mapita.drawMap();
 		bool pressed = false;
-		x_old = p1.PlayerPosX;
-		y_old = p1.PlayerPosY;
 		while (!pressed)
 		
-		p1.moviment(numColumns, numRows, pressed);
+		p1.moviment(pressed);
 		mapita.updateBox(p1.PlayerPosX, p1.PlayerPosY, '@');
 		mapita.updateBox(x_old, y_old, '.');
 		system("cls");
+
 	}
+	std::cout << "Fin Del Juego" << std::endl;
 }
 
 
-/*
-
-	Player1PosX = p1.PlayerPosX;
-	Player1PosY = p1.PlayerPosY;
-	
-	mapita.updateBox(Player1PosX, Player1PosY, '@');   
-	mapita.drawMap();
-	
-
-
-	
-
-
-	
-		system("cls");
-		std::cout << p1.PlayerPosX << ' ' << p1.PlayerPosY << std::endl;
-
-		
-		
-
-			mapita.updateBox(old_x, old_y, '.');
-		
-			old_x = Player1PosX;
-			old_y = Player1PosY;
-
-			p1.moviment(1, 1);
-			mapita.updateBox(p1.PlayerPosX, p1.PlayerPosY, '@');
-			mapita.drawMap();
-		
-
-
-	
-	
-	
-	
-	mapita.freeMemory();									//Libera la memoria del heap usada por el array dinamico
-
-		*/										
