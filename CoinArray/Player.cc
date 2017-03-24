@@ -3,11 +3,13 @@
 #include "player.hh"
 #include <conio.h>
 
-player::player(int numRows, int numColumns) {
+player::player(int numRows, int numColumns){
+
 
 	PlayerPosX = std::rand() % numColumns;
 	PlayerPosY =  std::rand() % numRows;
 	PlayerScore = 0;
+	
 
 }
 
@@ -44,23 +46,37 @@ namespace Input
 
 
 
-void player::moviment(bool& pressed) {
+void player::moviment(int nColumns,int nRows, bool& pressed, bool& GameOver) {
 
-
+		int x_old, y_old;
+		
 		switch (Input::moviment())
 		{
 		case Input::Key::W:
 			// Referirme a la posicion del array dinamico, y hacer "fila--"
 			
-
-			PlayerPosX = PlayerPosX -1;
-
+			
+				PlayerPosX = PlayerPosX -1;
+			
+			 	x_old = PlayerPosX;
+				y_old = PlayerPosY;
+				PlayerPosX = PlayerPosX;
+				Map::updateBox(PlayerPosX, PlayerPosY, '@');
+				Map::updateBox(x_old, y_old, '.');
+			
 			pressed = true;
 			break;
 		case Input::Key::S:
 			// Referirme a la posicion del array dinamico, y hacer "fila++"
 
 			PlayerPosX = PlayerPosX + 1;
+
+			/*	x_old = PlayerPosX;
+			y_old = PlayerPosY;
+			PlayerPosX = PlayerPosX;
+			updateBox(PlayerPosX, PlayerPosY, '@');
+			updateBox(x_old, y_old, '.');*/
+
 			pressed = true;
 			
 			break;
@@ -68,15 +84,31 @@ void player::moviment(bool& pressed) {
 			// Referirme a la posicion del array dinamico, y hacer "columna++"
 
 			PlayerPosY = PlayerPosY + 1;
+
+			/*	x_old = PlayerPosX;
+			y_old = PlayerPosY;
+			PlayerPosX = PlayerPosX;
+			updateBox(PlayerPosX, PlayerPosY, '@');
+			updateBox(x_old, y_old, '.');*/
+
 			pressed = true;
 			
 			break;
 		case Input::Key::A:
 			// Referirme a la posicion del array dinamico, y hacer "columna--"
-
 			PlayerPosY = PlayerPosY - 1;
+			/*	x_old = PlayerPosX;
+			y_old = PlayerPosY;
+			PlayerPosX = PlayerPosX;
+			updateBox(PlayerPosX, PlayerPosY, '@');
+			updateBox(x_old, y_old, '.');*/
+
 			pressed = true;
-		break;
+
+		/*case Input::Key::ESC:
+			
+			GameOver = false;		
+		break;*/
 
 		default:
 			break;

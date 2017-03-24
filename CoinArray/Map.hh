@@ -6,13 +6,13 @@ class Map
 		char playerSymbol;
 		char coinSymbol;
 	public:
-		char **punteroMapa;
+		static char **punteroMapa;
 		int NUM_ROWS;
 		int NUM_COLUMNS;
 
 	public://Metodos
 		Map(int, int);													//Constructor de la clase
 		void drawMap();
-		void updateBox(int Row, int Column, char value);		
+		static void updateBox(int Row, int Column, char value);		
 		void freeMemory();
 };

@@ -1,4 +1,4 @@
-class player 
+class player
 {
 
 private:
@@ -9,6 +9,6 @@ public:
 public:
 	player(int, int); //constructor de la classe
 	
-	void moviment(bool& pressed);
+	void moviment(int nColumns, int nRowsbool, bool& pressed, bool& GameOver);
 };
 
