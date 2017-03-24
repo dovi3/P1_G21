@@ -58,11 +58,11 @@ void player::moviment(int nColumns,int nRows, bool& pressed, bool& GameOver) {
 			
 				PlayerPosX = PlayerPosX -1;
 			
-			 	x_old = PlayerPosX;
+			/* 	x_old = PlayerPosX;
 				y_old = PlayerPosY;
 				PlayerPosX = PlayerPosX;
 				Map::updateBox(PlayerPosX, PlayerPosY, '@');
-				Map::updateBox(x_old, y_old, '.');
+				Map::updateBox(x_old, y_old, '.');*/
 			
 			pressed = true;
 			break;
