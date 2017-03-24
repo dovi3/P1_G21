@@ -49,20 +49,22 @@ void main()
 	dificultad(numColumns, numRows);
 
 	// Generant joc 
-	Map mapita = Map(numColumns, numRows);			//Reserva memoria dinamica y la llena de '.'
-	player p1 = player(numColumns, numRows);				//Inicialitza l'objecte p1
 
+	Map mapita = Map(numColumns, numRows);					//Reserva memoria dinamica y la llena de '.'
+	player p1 = player(numRows, numColumns);				//Inicialitza l'objecte p1
+
+	
 	while (GameOver) {
 		std::cout << "Selecciona la dificultad:\n 1: Easy\n 2: Medium\n 3: Hard\n" << std::endl;
-		
+		int x_old = p1.PlayerPosX;
+		int y_old = p1.PlayerPosY;
 		mapita.updateBox(p1.PlayerPosX, p1.PlayerPosY, '@');
 		mapita.drawMap();
 		bool pressed = false;
 		while (!pressed)
-		
-		p1.moviment(pressed);
+		p1.moviment(numColumns, numRows, pressed);
 		mapita.updateBox(p1.PlayerPosX, p1.PlayerPosY, '@');
-		mapita.updateBox(x_old, y_old, '.');
+			mapita.updateBox(x_old, y_old, '.');
 		system("cls");
 
 	}

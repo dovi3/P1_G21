@@ -40,10 +40,12 @@ void Map::updateBox(int Row, int Column, char value) {
 void Map::drawMap()                                          //Printa todo el mapa, es decir, todo lo que contenga el array dinamico
 {
 	std::cout << "\nGenerando mapa...\n";
+
+
 	for (int i = 0; i < NUM_ROWS; i++) {
 		for (int j = 0; j < NUM_COLUMNS; j++) {
-						
-			std::cout << *(*(punteroMapa + i) + j) << " ";
+			std::cout << punteroMapa[i][j] << " ";
+			//std::cout << *(*(punteroMapa + i) + j) << " ";
 		}
 		std::cout << "\n";
 	}
