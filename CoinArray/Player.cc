@@ -19,7 +19,7 @@ player::player(int numRows, int numColumns){
 
 
 
-void player::moviment(int nColumns, int nRows, bool& pressed) {
+void player::moviment(int nColumns, int nRows, bool& pressed){
 	
 
 

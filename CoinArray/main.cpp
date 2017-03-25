@@ -61,10 +61,10 @@ void main()
 		mapita.updateBox(p1.PlayerPosX, p1.PlayerPosY, '@');
 		mapita.drawMap();
 		bool pressed = false;
-		while (!pressed)
+		while (!pressed)										//Este bucle lee los eventos de teclado, no se sale del bucle hasta que no se pulsa algunas de las teclas.
 		p1.moviment(numColumns, numRows, pressed);
-		mapita.updateBox(p1.PlayerPosX, p1.PlayerPosY, '@');
-			mapita.updateBox(x_old, y_old, '.');
+		mapita.updateBox(p1.PlayerPosX, p1.PlayerPosY, '@');	 // Coje la nueva posición del player"@" y lo posiciona en el mapa (array)
+		mapita.updateBox(x_old, y_old, '.');					// Coje la antigua posición del player"@" y lo borra (pinta un '.')
 		system("cls");
 
 	}

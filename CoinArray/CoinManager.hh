@@ -9,9 +9,9 @@ private:
 	int AlreadyCoins;
 
 public:
-
-	void CoinGenerator(int, int);
-
+	
+	
+	CoinManager(int, int);
 	void ReRollCoins();
 
 
