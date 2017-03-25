@@ -3,11 +3,10 @@
 #include "Player.hh"
 #include "Map.hh" 
 #include <stdlib.h>
-#include "CoinManager.hh"
-#include <Windows.h>
 
 
 int difi;
+
 
 
 int dificultad(int& numRows, int& numColumns) {
@@ -35,11 +34,20 @@ int dificultad(int& numRows, int& numColumns) {
 } 
 
 
+	
+	
+	
+
+
+
+
 void main()
 {
 	std::cout << "		///////////////////		" << std::endl;
 	std::cout << "		    COIN RACE		" << std::endl;
 	std::cout << "		//////////////////		" << std::endl;
+
+
 
 	srand(time(nullptr));
 	int numColumns, numRows;
@@ -55,10 +63,9 @@ void main()
 
 	Map mapita = Map(numColumns, numRows);					//Reserva memoria dinamica y la llena de '.'
 	player p1 = player(numRows, numColumns);				//Inicialitza l'objecte p1
-	CoinManager coin = CoinManager(numRows, numColumns);
+
 															//Cabecera del juego
 	
-
 	while (GameOver) {
 		
 		if (!GameOver) {
@@ -75,14 +82,10 @@ void main()
 		mapita.updateBox(p1.PlayerPosX, p1.PlayerPosY, '@');	 // Coje la nueva posición del player"@" y lo posiciona en el mapa (array)
 		mapita.updateBox(x_old, y_old, '.');					// Coje la antigua posición del player"@" y lo borra (pinta un '.')
 		system("cls");
-		
-
-		coin.initCoin(numRows, numColumns, '$');
 
 	}
 	
-	
-	
+
 	std::cout << "Fin Del Juego" << std::endl;
 }
 
