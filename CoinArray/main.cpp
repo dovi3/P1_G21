@@ -1,13 +1,13 @@
 #include <iostream>
 #include <time.h>
-#include "Player.hh"
+#include "player.hh"
 #include "Map.hh" 
 #include <stdlib.h>
 #include "CoinManager.hh"
 #include <Windows.h>
 
 
-int difi;
+int difi, coins;
 
 
 int dificultad(int& numRows, int& numColumns) {
@@ -27,16 +27,22 @@ int dificultad(int& numRows, int& numColumns) {
 		}
 	
 	}
-	
-	
 	 numRows = rand() % (nRows * difi) + (nRows * difi);
 	 numColumns = rand() % (nColumns * difi) + (nColumns * difi);
 	 return difi;
 } 
 
+//PRUEBAS
+void updateMap(HANDLE hConsole, Map mapita, player &p1, CoinManager &coin, int coins)
+{
+
+
+}
+
 
 void main()
-{
+{	
+	//Cabecera del juego
 	std::cout << "		///////////////////		" << std::endl;
 	std::cout << "		    COIN RACE		" << std::endl;
 	std::cout << "		//////////////////		" << std::endl;
@@ -52,13 +58,11 @@ void main()
 	dificultad(numColumns, numRows);
 
 	// Generant joc 
-
 	Map mapita = Map(numColumns, numRows);					//Reserva memoria dinamica y la llena de '.'
 	player p1 = player(numRows, numColumns);				//Inicialitza l'objecte p1
-	CoinManager coin = CoinManager(numRows, numColumns);
-															//Cabecera del juego
-	
-
+	//PRUEBAS
+	//CoinManager coin = CoinManager(numRows, numColumns);
+															
 	while (GameOver) {
 		
 		if (!GameOver) {
@@ -75,9 +79,22 @@ void main()
 		mapita.updateBox(p1.PlayerPosX, p1.PlayerPosY, '@');	 // Coje la nueva posición del player"@" y lo posiciona en el mapa (array)
 		mapita.updateBox(x_old, y_old, '.');					// Coje la antigua posición del player"@" y lo borra (pinta un '.')
 		system("cls");
-		
-
-		coin.initCoin(numRows, numColumns, '$');
+		//PRUEBAS
+		/*HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+		srand(time(NULL));
+		coins = (rand() % difi * 30 + 1) + difi * 30;
+		SetConsoleTextAttribute(hConsole, 15);
+		std::cout << "Recoge las monedas" << std::endl;
+		SetConsoleTextAttribute(hConsole, 11);
+		std::cout << coins;
+		SetConsoleTextAttribute(hConsole, 15);
+		std::cout << " coins" << std::endl;
+		getch();
+		const tcoin *CoinData;
+		int CoinAcum;
+		//mapita.updateBox(hConsole, mapita, p1, coin, coins);
+		coin.initCoin(numRows, numColumns, '$');*/
+		//PRUEBAS
 
 	}
 	

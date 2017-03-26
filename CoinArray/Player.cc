@@ -6,6 +6,8 @@
 int a = 0;
 int b = 0;
 bool GameOver = true;
+
+
 player::player(int numRows, int numColumns){
 
 
@@ -19,8 +21,6 @@ player::player(int numRows, int numColumns){
 
 void player::moviment(int nColumns, int nRows, bool& pressed){
 	
-
-
 		switch (Input::moviment())
 		{
 		case Input::Key::W:
@@ -52,14 +52,16 @@ void player::moviment(int nColumns, int nRows, bool& pressed){
 			if (PlayerPosY != 0)
 			PlayerPosY = PlayerPosY - 1;
 			pressed = true;
-		
-		case Input::Key::ESC:
 			
-				std::cout << "Ending Game..." << std::endl;
-			
-			GameOver = true;		
-		break;
+			break;
 
+		case Input::Key::ESC:
+
+			std::cout << "Ending Game..." << std::endl;
+			
+			GameOver = false;		
+		
+			
 		default:
 			break;
 		}
