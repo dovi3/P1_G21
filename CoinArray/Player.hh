@@ -6,7 +6,7 @@ class player
 private:
 public:
 	int PlayerPosX, PlayerPosY;
-	int PlayerScore;
+	int PlayerScore = 0;
 
 public:
 	
