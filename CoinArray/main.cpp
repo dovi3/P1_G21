@@ -70,7 +70,7 @@ void main()
 
 		coins.X = rand() % numColumns;
 		coins.Y = rand() % numRows;
-	}
+	 
 
 
 	while (GameOver) {
