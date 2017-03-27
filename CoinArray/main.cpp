@@ -9,28 +9,28 @@
 int difi;
 
 
-
-int dificultad(int& numRows, int& numColumns) {
+	
+int dificultad(int& numRows, int& numColumns) {		// Retorna per referència els n de columnes i files determinat en base a la dificultat escollida
 	int nRows = 5;
 	int nColumns = 5;
 
-	difi = 0;
-	while (difi != 1 && difi != 2 && difi != 3) {
+	difi;
+	while (difi != 1 && difi != 2 && difi != 3) {	 // no es surt d'aquest bucle fins que la dificultat escollida sigui la correcta
 	
 	
 		std::cout << "Selecciona la dificultad:\n 1: Easy\n 2: Medium\n 3: Hard\n" << std::endl;
 		
-		std::cin >> difi;
+		std::cin >> difi;							// Guarda el valor introduit a la variable difi
 
-		if (difi != 1 && difi != 2 && difi != 3) {
+		if (difi != 1 && difi != 2 && difi != 3) {  // Si el usuari ha introduit un nombre que no es ni 1 ni 2 ni 3, ha de tornar a introduir-lo.
 			std::cout << "debes elegir un numero del 1 al 3!!" << std::endl;
 		}
 	
 	}
 	
 	
-	 numRows = rand() % (nRows * difi) + (nRows * difi);
-	 numColumns = rand() % (nColumns * difi) + (nColumns * difi);
+	 numRows = rand() % (nRows * difi) + (nRows * difi);		  // calcula els n de files determinat en base a la dificultat escollida
+	 numColumns = rand() % (nColumns * difi) + (nColumns * difi); // els n de columnes determinat en base a la dificultat escollida
 	 return difi;
 } 
 
@@ -60,15 +60,15 @@ void main()
 	player p1 = player(numRows, numColumns);				//Inicialitza l'objecte p1
 	CoinManager coins = CoinManager(numRows, numColumns);
 
-	for (int i = 0; i <= coins.numCoins; /*nada*/) {						// Aquest for generara el nombre exacte de Cons que volem aleatoriament al mapa sense repetir posicions
+	for (int i = 0; i < coins.numCoins; /*nada*/) {						// Aquest for generara el nombre exacte de Cons que volem aleatoriament al mapa sense repetir posicions
 
 
-		if (mapita.punteroMapa[coins.X][coins.Y] == '.') {
+		if (mapita.punteroMapa[coins.X][coins.Y] == '.') {	// Si no hi ha cap coin a la posició, en posa un i incrementa i, sino, a la seguent iteració del for es generara una altra posició 
 			mapita.updateBox(coins.X, coins.Y, '$');
 			i++;
 		}
 
-		coins.X = rand() % numColumns;
+		coins.X = rand() % numColumns;  // Genera posicions aleatories però sempre dins del array generat.
 		coins.Y = rand() % numRows;
 	}
 
@@ -94,7 +94,7 @@ void main()
 			mapita.updateBox(x_old, y_old, '.');					// Coje la antigua posición del player"@" y lo borra (pinta un '.')		
 
 
-			if (p1.PlayerScore >= coins.numCoins) {            // Comprueva la condicion de victoria ncoins == player score
+			if (p1.PlayerScore == coins.numCoins) {            // Comprueva la condicion de victoria ncoins == player score
 				GameOver = true;
 			}
 

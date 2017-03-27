@@ -14,6 +14,8 @@ public:
 	
 	
 	CoinManager(int, int);
+	
+	
 	void ReRollCoins();
 
 
