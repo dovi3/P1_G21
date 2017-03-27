@@ -48,7 +48,7 @@ void main()
 	int numColumns, numRows;
 	int Player1PosX;
 	int  Player1PosY;
-	bool GameOver = true;
+	bool GameOver = false;
 	srand(time(nullptr));
 
 
@@ -70,36 +70,41 @@ void main()
 
 		coins.X = rand() % numColumns;
 		coins.Y = rand() % numRows;
-	 
+	}
 
 
-	while (GameOver) {
+	while (!GameOver) 
+	{
 		std::cout << "Selecciona la dificultad:                          SCORE: "  << p1.PlayerScore << "\n 1: Easy\n 2: Medium\n 3: Hard\n" << std::endl;
 		int x_old = p1.PlayerPosX;
 		int y_old = p1.PlayerPosY;
-		mapita.updateBox(p1.PlayerPosX, p1.PlayerPosY, '@');
-		mapita.drawMap();
+		mapita.updateBox(p1.PlayerPosX, p1.PlayerPosY, '@'); // Posicionames el player en el mapa
+		mapita.drawMap();									// pintamos el mapa	
 		bool pressed = false;
-
-
-
-
-		while (!pressed) {										//Este bucle lee los eventos de teclado, no se sale del bucle hasta que no se pulsa algunas de las teclas.
+		
+		
+		
+		while (!pressed) {											//Este bucle lee los eventos de teclado, no se sale del bucle hasta que no se pulsa algunas de las teclas.
 			p1.moviment(numColumns, numRows, pressed);
+			if (mapita.punteroMapa[p1.PlayerPosX][p1.PlayerPosY] == '$')   // Comprueva la posicion del player en el Mapa y si en ésta hay un coin, incrementa el Score
+			{
+				p1.PlayerScore++;
+			}
 			mapita.updateBox(p1.PlayerPosX, p1.PlayerPosY, '@');	 // Coje la nueva posición del player"@" y lo posiciona en el mapa (array)
-			mapita.updateBox(x_old, y_old, '.');					// Coje la antigua posición del player"@" y lo borra (pinta un '.')
-			
+			mapita.updateBox(x_old, y_old, '.');					// Coje la antigua posición del player"@" y lo borra (pinta un '.')		
+
+
+			if (p1.PlayerScore >= coins.numCoins) {            // Comprueva la condicion de victoria ncoins == player score
+				GameOver = true;
+			}
+
 		}
-		if (mapita.punteroMapa[p1.PlayerPosY][p1.PlayerPosX] != '$')
-		{
-			p1.PlayerScore++;
-		}
+		
 		system("cls");
-		if (p1.PlayerScore == coins.numCoins) {
-			GameOver = true;
-		}
-		std::cout << "Fin Del Juego" << std::endl;
+		
+		
 	}
+	std::cout << "Fin Del Juego" << std::endl;
 }
 
 
