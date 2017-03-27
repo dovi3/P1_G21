@@ -106,7 +106,7 @@ void main()
 		}
 
 		while (!pressed) {													//Este bucle lee los eventos de teclado, no se sale del bucle hasta que no se pulsa algunas de las teclas.
-			p1.moviment(numColumns, numRows, pressed);
+			p1.moviment(numColumns, numRows, pressed, GameOver);
 			if (mapita.punteroMapa[p1.PlayerPosX][p1.PlayerPosY] == '$')    // Comprueva la posicion del player en el Mapa y si en ésta hay un coin, incrementa el Score y decrementa counter
 			{
 				p1.PlayerScore++;
@@ -114,9 +114,6 @@ void main()
 			}
 			mapita.updateBox(p1.PlayerPosX, p1.PlayerPosY, '@');			 // Coje la nueva posición del player"@" y lo posiciona en el mapa (array)
 			mapita.updateBox(x_old, y_old, '.');							// Coje la antigua posición del player"@" y lo borra (pinta un '.')
-
-
-
 		}
 
 		system("cls");
@@ -130,7 +127,7 @@ void main()
 	}
 
 	std::cout << "Fin Del Juego" << std::endl;
-	std::cout << "Has recogido " << p1.PlayerScore << " monedas en " << ((float)t)/CLOCKS_PER_SEC << " segundos" <<"\n" << std::endl;
+	std::cout << "Has recogido " << p1.PlayerScore << " monedas en " << ((float)t) << " segundos" <<"\n" << std::endl;
 
 	system("pause");
 

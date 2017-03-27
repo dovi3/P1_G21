@@ -19,7 +19,7 @@ player::player(int numRows, int numColumns){
 }
 
 
-void player::moviment(int nColumns, int nRows, bool& pressed){
+void player::moviment(int nColumns, int nRows, bool& pressed, bool& GameOver){
 	
 		switch (Input::moviment())
 		{
@@ -29,6 +29,10 @@ void player::moviment(int nColumns, int nRows, bool& pressed){
 			if(PlayerPosX !=0)
 			PlayerPosX = PlayerPosX -1;
 			
+			//mapita.updateBox(p1.PlayerPosX, p1.PlayerPosY, '@');			éstas dos linias deberian ir aquí pero no sabemos como llamar el método "updateBox" de la classe Map en este método de la classe Player :C
+			//mapita.updateBox(x_old, y_old, '.');							así pues hemos tenido que implementarlo desdel main
+
+
 			pressed = true;
 			break;
 		case Input::Key::S:
@@ -36,6 +40,9 @@ void player::moviment(int nColumns, int nRows, bool& pressed){
 			
 			if (PlayerPosX != nColumns - 1)
 			PlayerPosX = PlayerPosX + 1;
+
+			//mapita.updateBox(p1.PlayerPosX, p1.PlayerPosY, '@');			éstas dos linias deberian ir aquí pero no sabemos como llamar el método "updateBox" de la classe Map en este método de la classe Player :C
+			//mapita.updateBox(x_old, y_old, '.');							así pues hemos tenido que implementarlo desdel main
 			pressed = true;
 			
 			break;
@@ -44,6 +51,9 @@ void player::moviment(int nColumns, int nRows, bool& pressed){
 			if (PlayerPosY != nRows - 1)
 			PlayerPosY = PlayerPosY + 1;
 
+			//mapita.updateBox(p1.PlayerPosX, p1.PlayerPosY, '@');			éstas dos linias deberian ir aquí pero no sabemos como llamar el método "updateBox" de la classe Map en este método de la classe Player :C
+			//mapita.updateBox(x_old, y_old, '.');							así pues hemos tenido que implementarlo desdel main
+
 			pressed = true;
 			
 			break;
@@ -51,6 +61,9 @@ void player::moviment(int nColumns, int nRows, bool& pressed){
 			// Referirme a la posicion del array dinamico, y hacer "columna--"
 			if (PlayerPosY != 0)
 			PlayerPosY = PlayerPosY - 1;
+
+			//mapita.updateBox(p1.PlayerPosX, p1.PlayerPosY, '@');			éstas dos linias deberian ir aquí pero no sabemos como llamar el método "updateBox" de la classe Map en este método de la classe Player :C
+			//mapita.updateBox(x_old, y_old, '.');							así pues hemos tenido que implementarlo desdel main
 			pressed = true;
 			
 			break;
@@ -58,9 +71,8 @@ void player::moviment(int nColumns, int nRows, bool& pressed){
 		case Input::Key::ESC:
 
 			std::cout << "Ending Game..." << std::endl;
-			
-			GameOver = false;		
-		
+			pressed = true;
+			GameOver = true;
 			
 		default:
 			break;

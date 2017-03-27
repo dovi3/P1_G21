@@ -13,7 +13,7 @@ public:
 	
 	player(int, int); //constructor de la classe
 	
-	void moviment(int Row, int Column, bool& pressed);
+	void moviment(int Row, int Column, bool& pressed, bool& GameOver);
 
 };
 
