@@ -82,7 +82,7 @@ void main()
 		std::cout << "Selecciona la dificultad:                          SCORE: " << p1.PlayerScore << "/" << victory << "\n 1: Easy\n 2: Medium\n 3: Hard\n" << std::endl;
 		int x_old = p1.PlayerPosX;
 		int y_old = p1.PlayerPosY;
-		mapita.updateBox(p1.PlayerPosX, p1.PlayerPosY, '@');				// Posicionames el player en el mapa
+		mapita.updateBox(p1.PlayerPosX, p1.PlayerPosY, '@');				// Posicionamos el player en el mapa
 		mapita.drawMap();													// pintamos el mapa	
 		bool pressed = false;
 
